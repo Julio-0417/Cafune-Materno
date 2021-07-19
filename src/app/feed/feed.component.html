@@ -1,0 +1,480 @@
+<div class="container-fluid bg-w-pink">
+
+
+  <div class="row bg-w-purple">
+    <div class="col-md-12 text-white">
+      <div class="row d-flex justify-content-center mt-4 mb-5">
+        <div class="col-md-4">
+          <div class="form-group d-flex align-items-center">
+            <input type="text" class="form-control" id="descricao" placeholder="Digite o que você deseja buscar">
+            <button class="ml-1 fas fa-search fa-2x text-white" style="background:transparent;border:none"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--routerLink="/grupos"-->
+    <div class="container d-flex justify-content-center">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active text-white bb-1" data-spy="affix" data-toggle="tooltip" title="Feed" id="feed"
+            data-toggle="pill" href="#pills-feed" role="tab" aria-controls="pills-feed" aria-selected="true"><i
+              class="fa fa-book fa-2x" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+
+          <a class="nav-link text-white bb-1 ml-2" data-toggle="tooltip" title="Grupos" id="grupos" data-toggle="pill"
+            href="#pills-grupos" role="tab" aria-controls="pills-grupos" aria-selected="false"
+            (click)='findUsuarioId()'><i class="fa fa-users fa-2x" aria-hidden="true"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white bb-1 ml-2" data-toggle="tooltip" title="Doações" id="doacoes" data-toggle="pill"
+            href="#pills-doacoes" role="tab" aria-controls="pills-doacoes" aria-selected="false"><i
+              class="fa fa-hand-holding-heart fa-2x"></i></a>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white bb-1 ml-2" data-toggle="tooltip" title="Delegacia da mulher" id="delegacia"
+            data-toggle="pill" href="#pills-delegacia" role="tab" aria-controls="pills-delegacia"
+            aria-selected="false"><i class="fas fa-shield-alt fa-2x"></i></a>
+        </li>
+      </ul>
+
+    </div>
+    <div class="container-fluid">
+      <div class="row posicaoNav">
+        <div class="col-md-12 bg-w-yellow">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="bg-w-pink">
+    <div class="form-group mt-3 container justify-content-center">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="feed">
+
+              <div class="row d-flex justify-content-center p-0">
+                <div class="col-md-4 mr-5 mt-4">
+                  <div class="d-flex justify-content-center flex-column align-items-center">
+                    <table class="table table-borderless bg-white">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="p-size text-left"><i class="fas fa-book-open mr-2"></i>Artigos</th>
+                        </tr>
+                      </thead>
+                      <hr>
+                      <tbody class="a-size">
+                        <tr>
+                          <td>
+                            <p class="m-0 mb-0 mt-0 p-0">04.06.2021</p>
+                            <a class="mb-0"
+                              href="https://g1.globo.com/sp/sorocaba-jundiai/noticia/2021/06/04/banco-de-leite-esta-em-alerta-com-queda-no-numero-de-doacoes-durante-pandemia-em-jundiai.ghtml"
+                              target="_blank">
+                              <p class="text-left">Banco de leite está em alerta com queda no número de doações durante
+                                pandemia em Jundiaí!</p>
+                            </a>
+                          </td>
+                        </tr>
+                        <hr>
+                        <tr>
+                          <td>
+                            <p class="mb-0 mt-0 p-0">05.03.2021</p>
+                            <a class="mb-0"
+                              href="https://saude.abril.com.br/blog/com-a-palavra/cesareas-ainda-dominam-a-cena-dos-partos-precisamos-reverter-isso/"
+                              target="_blank">
+                              <p class="text-left m-0">Cesáreas ainda dominam a cena dos partos: precisamos reverter
+                                isso!
+                              </p>
+                            </a>
+                          </td>
+                        </tr>
+                        <hr>
+                        <tr>
+                          <td>
+                            <p class="mb-0 mt-0 p-0">10.10.2020</p>
+                            <a class="mb-0"
+                              href="https://www.cnj.jus.br/mais-de-5-mil-criancas-estao-disponiveis-para-adocao-no-brasil/"
+                              target="_blank">
+                              <p class="text-left">Mais de 5 mil crianças estão disponíveis para adoção no Brasil!</p>
+                            </a>
+                          </td>
+                        </tr>
+                        <hr>
+                        <tr>
+                          <td>
+                            <p class="mb-0 mt-0 p-0">09.10.2019</p>
+                            <a class="mb-0" href="https://www.fadc.org.br/noticias/entenda-a-importancia-do-pre-natal"
+                              target="_blank">
+                              <p class="text-left mb-0 mt-0">Entenda a importância do pré-natal!</p>
+                            </a>
+                          </td>
+                        </tr>
+                        <hr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col-md-7 mt-4 p-0">
+                  <div class="d-flex justify-content-center flex-column align-items-center">
+
+                    <div class="table table-borderless bg-white p-3">
+
+                      <div class="d-flex align-items-center">
+                        <div class="flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
+                        <input [(ngModel)]='postagens.tituloPostagem' type="email" class="form-control bg-cz w-100"
+                          id="titulo" placeholder="Título da Postagem" (keydown.enter)='postar()'>
+                      </div>
+
+
+                      <div class="d-flex align-items-center mt-3">
+                        <div class="flex-shrink-0 mr-3"><i class="far fa-file-alt w-1em"></i></div>
+                        <textarea [(ngModel)]='postagens.descricaoPostagem' type="email" class="form-control bg-cz w-100"
+                          id="publicacao" placeholder="O que esta pensando?" rows="3" (keydown.enter)='postar()'></textarea>
+                      </div>
+
+
+                      <div class="d-flex align-items-center mt-3">
+                        <div class="flex-shrink-0 mr-3"><i class="fas fa-camera-retro text-dark w-1em"></i></div>
+                        <input [(ngModel)]='postagens.urlAnexo' type="email" class="form-control bg-cz w-100"
+                          id="publicacao" placeholder="Coloque aqui o link de uma imagem" (keydown.enter)='postar()'>
+                      </div>
+
+                      <div class="row mr-4 mt-4">
+                        <div class="col-md-12 d-flex justify-content-end">
+                          <button class="btn bg-purple text-white input-group-append mb-4"
+                            (click)='postar()'>Publicar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row mb-4 w-100 ml-0" *ngFor='let i of listaPostagens'>
+                      <div class="col-md-12 p-0">
+                        <div class="card bg-light mb-2" *ngIf='verificaNull(i)'>
+                          <div class="card-header bg-pink">
+                            <div class="row">
+                              <div class="col-md-3">
+                                <img src="{{i.usuario.foto}}" alt="foto perfil" width="70px" height="70px"
+                                  class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
+                              </div>
+                              <div class="col-md-8">
+                                <h5>{{i.usuario.nomeCompleto}}</h5>
+
+
+                              </div>
+                            </div>
+                          </div>
+                          <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}"
+                            alt="Imagem de capa do card">
+                          <div class="card-body">
+                            <h5 class="card-title">{{i.tituloPostagem}}</h5>
+                            <p class="card-text">
+                              {{i.descricaoPostagem}}
+                            </p>
+                          </div>
+                          <h5 class="card-text mb-2 mr-1"><small class="text-muted d-flex justify-content-end mr-1">{{i.date |
+                              date:
+                              'dd/MM/yyyy'}} às
+                              {{i.date | date: 'HH:mm'}}</small></h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-grupos" role="tabpanel" aria-labelledby="grupos">
+
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="row">
+
+                    <div class="col-md-12 mb-5">
+
+                      <div class="col-md-12">
+
+                        <h4 class="text-center p-4 mb-5 bg-white">Crie um grupo de seu interesse!</h4>
+                        <div class="col-md-12 bg-white p-5">
+                          <button type="button" class="btn bg-pink btn-lg w-100 mb-3" data-toggle="modal"
+                            data-target="#modalExemplo">
+                            Criar um Grupo
+                            <i class="fas fa-plus-circle"></i>
+                          </button>
+                          <!--*ngFor='let item of usuarios.listaGrupos'-->
+                          <button type="button" class="btn bg-pink btn-lg w-100" data-toggle="modal"
+                            data-target="#modalMeusGrupos" (click)='findAllGrupos()'>
+                            Meus grupos
+                          </button>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12 bg-white">
+                    <h4 class="text-center p-4">Encontre grupos ideais para você!</h4>
+                  </div>
+                  <table class="table table-hover">
+
+                    <tbody>
+                      <tr *ngFor='let i of listaGrupos'>
+                        <td><img src="{{i.foto}}" alt="Imagem do grupo" width="70px" height="70px"
+                            class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SZf8Xn4.png'">
+                        </td>
+                        <td>{{i.nomeGrupo}}</td>
+                        <td class="d-flex justify-content-end">
+                          <button class="btn btn bg-pink w-100" *ngIf="verificaUsuarioGrupo(i)"
+                            (click)='entrarGrupo(i)'>Participar<i class=" ml-2 fas fa-plus-circle"></i></button>
+                          <p class="btn btn-outline-secondary aria-disabled w-100" *ngIf="!verificaUsuarioGrupo(i)"
+                            [routerLink]="['/pagina-grupo',i.idGrupo]">
+                            Membro</p>
+                        </td>
+                        <td>
+                          <button class="btn btn-outline-danger  w-100" *ngIf="verificarUser()"
+                            (click)='deleteGrupo(i)'>Excluir</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="tab-pane fade" id="pills-doacoes" role="tabpanel" aria-labelledby="doacoes">
+              <div class="container mt-4 mb-3">
+                <div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-9">
+                      <div class="card">
+                        <div class="card-body text-center bb-1 font-weight-bold">
+                          Solidariedade e Sororidade
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="row d-flex justify-content-center mt-4">
+                    <div class="col-md-3">
+                      <div class="card w-100">
+                        <div class="card-body text-center">
+                          <p class="card-text text-center font-weight-bold">Leite Materno</p>
+                        </div>
+                        <img class="card-img-top w-100" src="https://i.imgur.com/ktWlP02.png"
+                          alt="Imagem de capa do card">
+                        <div class="d-flex justify-content-center">
+                          <a class="btn bg-purple text-light w-75 mt-2 mb-4" routerLink='/doacao-leite'
+                            role="button">Saiba Mais</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold">Higiene Menstrual</p>
+                        </div>
+                        <img class="card-img-top w-100" src="https://i.imgur.com/k9St2VY.png"
+                          alt="Imagem de capa da postagem">
+                        <div class="d-flex justify-content-center">
+                          <a class="btn bg-purple text-light w-75 mt-2 mb-4" routerLink='/doacao-higiene'
+                            role="button">Saiba Mais</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="card">
+                        <div class="card-body">
+                          <p class="card-text text-center font-weight-bold">Roupas e Brinquedos</p>
+                        </div>
+                        <img class="card-img-top w-100" src="https://i.imgur.com/JS8tewl.png"
+                          alt="Imagem de capa do card">
+                        <div class="d-flex justify-content-center">
+                          <a class="btn bg-purple text-light w-75 mt-2 mb-4" routerLink='/doacao-roupa'
+                            role="button">Saiba Mais</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-delegacia" role="tabpanel" aria-labelledby="delegacia">
+              <div class="container d-flex justify-content-center mb-4">
+                <div class="row">
+                  <div class="col-md-6 d-flex flex-column align-content-center">
+                    <h4 class="text-center p-4 w-100 bg-white rounded">Tipos de Violência</h4>
+
+                    <div class="bg-white w-100 p-4 mt-4">
+                      <div class="dropdown">
+                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Violência Física <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <p class="p-2">Entendida como qualquer conduta que ofenda a integridade ou saúde corporal da
+                            mulher.</p>
+                        </div>
+                      </div>
+
+
+
+                      <div class="dropdown mt-4">
+                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Violência Psicológica <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <p class="p-2">É considerada qualquer conduta que: cause dano emocional e diminuição da
+                            autoestima; prejudique e perturbe o pleno desenvolvimento da mulher; ou vise degradar ou
+                            controlar suas ações, comportamentos, crenças e decisões.</p>
+                        </div>
+                      </div>
+
+                      <div class="dropdown mt-4">
+                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Violência Sexual <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <p class="p-2">Trata-se de qualquer conduta que constranja a presenciar, a manter ou a
+                            participar de relação sexual não desejada mediante intimidação, ameaça, coação ou uso da
+                            força.</p>
+                        </div>
+                      </div>
+
+                      <div class="dropdown mt-4">
+                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Violência Patrimonial <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <p class="p-2">Entendida como qualquer conduta que configure retenção, subtração, destruição
+                            parcial ou total de seus objetos, instrumentos de trabalho, documentos pessoais, bens,
+                            valores
+                            e direitos ou recursos econômicos, incluindo os destinados a satisfazer suas necessidades.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div class="dropdown mt-4">
+                        <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Violência Moral <i class="fa fa-angle-down text-end" aria-hidden="true"></i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <p class="p-2">É considerada qualquer conduta que configure calúnia, difamação ou injúria.
+                          </p>
+                        </div>
+                      </div>
+                      <h6 class="mt-3">Fonte: Instituto Maria da Penha</h6>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="col-md-12 bg-white rounded">
+                      <h4 class="text-center p-4 w-100">Encontre uma Delegacia da Mulher</h4>
+                    </div>
+                    <iframe class="w-100 mt-4"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.3092907045675!2d-46.625330785383895!3d-23.557332767327843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce590e3de54d15%3A0x2ab93a11f63b69ef!2s1%C2%AA%20Delegacia%20de%20Defesa%20da%20Mulher!5e0!3m2!1spt-BR!2sus!4v1626035769057!5m2!1spt-BR!2sus"
+                      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-w-pink">
+          <h5 class="modal-title" id="exampleModalLabel">Criar Grupo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-w-pink">
+          <div class="form-group">
+            <label for="">Nome do grupo:</label>
+            <input [(ngModel)]='grupos.nomeGrupo' type="text" class="form-control" id="grupos.nomeGrupo"
+              placeholder="Digite o nome do grupo:" (keydown.enter)='cadastrar()'>
+          </div>
+          <div class="form-group">
+            <label for="">Descrição:</label>
+            <input [(ngModel)]='grupos.tema' type="text" class="form-control" id="grupos.tema"
+              placeholder="Digite a descrição do tema do grupo:" (keydown.enter)='cadastrar()'>
+          </div>
+          <div class="form-group">
+            <label for="">Imagem:</label>
+            <input [(ngModel)]='grupos.foto' type="text" class="form-control" id="grupos.foto"
+              placeholder="Coloque uma foto:">
+          </div>
+        </div>
+        <div class="modal-footer bg-w-pink">
+          <button class="btn  mr-2 bg-pink" (click)='cadastrar()' data-dismiss="modal">Cadastrar</button>
+          <button type="button" class="btn bg-w-yellow" data-dismiss="modal">Fechar</button>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="modalMeusGrupos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-w-pink">
+          <h5 class="modal-title" id="exampleModalLabel">Meus Grupos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body bg-w-pink">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Nome do Grupo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let item of usuarios.listaGrupos'>
+                <td>{{item.nomeGrupo}}</td>
+                <td class="d-flex justify-content-end">
+                  <button class="btn bg-purple text-white mr-3 w-100" data-dismiss="modal"
+                    [routerLink]="['/pagina-grupo',item.idGrupo]"> Ver </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer bg-w-pink">
+          <button type="button" class="btn bg-w-yellow" data-dismiss="modal">Fechar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>

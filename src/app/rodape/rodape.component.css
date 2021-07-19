@@ -1,0 +1,52 @@
+.bg-gold {
+    background-color: gold;
+}
+
+.bg-purple {
+    background-color: rgb(180, 65, 242);
+}
+
+.bg-w-purple {
+    background-color: #BF99E8;
+}
+
+.bg-w-yellow {
+    background-color: rgb(255, 226, 153)
+}
+
+.bg-pink{
+    background-color: rgb(254, 168, 243);
+}
+
+.bg-white{
+    background-color: white;
+}
+
+
+
+ul.social-network{
+    list-style: none;
+    padding: 0;
+}
+
+ul.social-network li{
+    display: inline;
+    margin: 0;
+    padding: 5px;
+}
+
+.fab{
+    font-size: 30pt;
+    color: black;
+    padding: 10px;
+}
+
+.fa-github:hover{
+    color:  purple;
+}
+
+.fixfoot{
+    bottom: 0px;
+    position: static;
+    z-index: 10;
+}

@@ -1,0 +1,82 @@
+.bg-gold {
+    background-color: gold;
+}
+
+.bg-purple {
+    background-color: rgb(180, 65, 242);
+}
+
+.bg-w-purple {
+    background-color: #BF99E8;
+}
+
+.bg-w-yellow {
+    background-color: rgb(255, 226, 153)
+}
+
+.bg-pink {
+    background-color: rgb(254, 168, 243);
+}
+
+.bg-w-pink {
+    background-color: #E8D8FF;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-l-grey {
+    background-color: #f5f3f3;
+}
+
+.bg-image {
+    background-image: url(https://i.imgur.com/9HxCnrP.png);
+}
+
+.posicaoNav {
+    top: 0px;
+    position: static;
+    z-index: 1;
+}
+
+.logo-size{
+    width: 50px;
+    height: 50px;
+}
+
+.img-size {
+    width: 500px;
+    height: 500px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+
+    background-color: #BF99E8;
+    border-bottom: white solid 4px;
+}
+
+.bb-1 {
+    border-bottom: white solid 1px;
+}
+
+.p-size{
+    font-size: 40px;
+}
+.a-size{
+    font-size: 20px;
+}
+
+.bg-cz{
+    background-color: #d4d4d4;
+}
+
+.inpsize{
+    max-width: 250px;
+}
+
+.font-verdana{
+    font-family: Verdana, sans-serif;
+    font-variant: small-caps;
+}
+

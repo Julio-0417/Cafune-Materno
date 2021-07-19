@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 bg-w-yellow">
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-w-purple d-flex flex-row align-items-center posicaoNav">
+
+
+    <a class="navbar-brand m-0" routerLink='/feed'><img src="https://i.imgur.com/NnHpNl6.jpg" alt="Logo"
+            class=" logo-size img-fluid rounded-circle"></a>
+
+
+    <button class="navbar-toggler bg-white" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item pl-3">
+                <h4 class="m-0 font-wheight-bold text-white fs-16">Olá, {{nome}}</h4>
+            </li>
+        </ul>
+
+        <div>
+            <a class="nav-item dropdown container pull-right">
+
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false"><img src="{{foto}}" alt="Foto do usuario" onerror="src='https://i.imgur.com/SrzGe8e.png'" style="background-color: rgb(255, 255, 255);" width="70px" height="70px"
+                        class="img-fluid rounded-circle"></a>
+                <div class="dropdown-menu dropdown drop-pos bg-purple">
+                    <a class="dropdown-item" [routerLink]="['/pagina-usuario', idUser]"><i class="fa fa-user-circle mr-1" aria-hidden="true"></i>Meu Perfil</a>
+                    <a class="dropdown-item" [routerLink]="['/minhas-postagens', idUser]"><i class="fa fa-clipboard mr-1" aria-hidden="true"></i>Minhas postagens</a>
+                   <a class="dropdown-item" routerLink='/ajuda-suporte'><i class="fa fa-question mr-1" aria-hidden="true"></i>Ajuda e suporte</a>
+                    <div class="dropdown-divider"></div>
+                    <p class="dropdown-item" (click)='sair()'>Sair <i class="fas fa-sign-out-alt"></i><p>
+                </div>
+                <a class="mt-5 fas fa-chevron-down text-white"></a>
+            </a>
+        </div>
+
+    </div>
+</nav>

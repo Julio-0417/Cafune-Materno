@@ -1,0 +1,30 @@
+<div class="container-fluid bg-w-pink">
+  <div class="row">
+    <div class="col-md-1  point">
+      <p [routerLink]="['/pagina-grupo',grupo.idGrupo]" class="point"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-4">
+      <h1 class="text-center text-secondary"> Editar Grupos</h1>
+      <div class="form-group">
+        <input [(ngModel)]='grupo.nomeGrupo' type="text" class="form-control"
+          placeholder="Digite o nome do grupo:" (keydown.enter)='updateGrupo()'>
+        </div>
+      <div class="form-group">
+        <input [(ngModel)]='grupo.tema' type="text" class="form-control"
+          placeholder="Digite a descrição do tema do grupo:" (keydown.enter)='updateGrupo()'>
+        </div>
+        <div class="form-group">
+          <input [(ngModel)]='grupo.foto' type="text" class="form-control" id="grupo.foto"
+            placeholder="Link da foto do grupo:" (keydown.enter)='updateGrupo()'> 
+        </div>
+        <div class="col-md-12 d-flex justify-content-end">
+          <button class="btn bg-w-yellow mb-4 mr-4" (click)='updateGrupo()' >Editar</button>
+          <button class="btn bg-pink mb-4 input-group-append mr-2" [routerLink]="['/pagina-grupo',grupo.idGrupo]">Cancelar</button>
+        </div>
+      </div>
+  
+  </div>
+ 
+</div>

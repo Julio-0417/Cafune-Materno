@@ -1,0 +1,23 @@
+.bg-w-yellow {
+    background-color: rgb(255, 226, 153)
+}
+
+.bg-w-pink {
+    background-color: #E8D8FF;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-l-grey {
+    background-color: #f5f3f3;
+}
+
+.bg-p-rose {
+    background-color: #f6eded;
+}
+
+.img {
+    width: 50px;
+}

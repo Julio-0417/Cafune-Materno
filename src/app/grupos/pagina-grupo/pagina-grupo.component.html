@@ -1,0 +1,152 @@
+<div class="container-fluid bg-w-pink">
+  <div class="row">
+    <div class="col-md-1 mt-1 point">
+      <p routerLink='/feed'> <i class="fa fa-arrow-left point" aria-hidden="true" routerLink='/feed.#pills-grupos'></i> Voltar</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-5 mt-3 mr-3">
+      <div class="card w-100">
+        <div class="card-body bgwh jumbotron mb-0 p-4">
+          <img src="https://i.imgur.com/y9k3B9T.png" alt="Logo" class="w-100 mb-2">
+
+          <div class="d-flex align-items-center mt-3">
+          <div class="form-group flex-shrink-0 mr-3"><i class="fas fa-pencil-alt w-1em"></i></div>
+              <input [(ngModel)]='postagens.tituloPostagem' placeholder="Título da Postagem" class="form-control w-100 bg-cz"
+                (keydown.enter)='cadastrarPostagem()'>
+          </div>
+          <div class="d-flex align-items-center mt-3">
+            <div class="form-group flex-shrink-0 mr-3"><i class="far fa-file-alt w-1em"></i></div>
+            <textarea [(ngModel)]='postagens.descricaoPostagem' placeholder="Escreva suas ideias, dúvidas e experiências."
+              class="form-control w-100 bg-cz" rows="3" (keydown.enter)='cadastrarPostagem()'></textarea>
+          </div>
+          <div class="d-flex align-items-center mt-3">
+            <div class="form-group flex-shrink-0 mr-3"><i class="fas fa-camera-retro text-dark w-1em"></i></div>
+            <input [(ngModel)]='postagens.urlAnexo' placeholder="Coloque aqui o link de uma imagem" class="form-control w-100 bg-cz"
+              (keydown.enter)='cadastrarPostagem()'>
+          </div>
+          <div class="d-flex justify-content-end mt-3">
+            <button class="btn bg-purple mb-0 text-white w-25" (click)='cadastrarPostagem()'>Publicar</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row" *ngFor='let i of grupo.post'>
+        <div class="w-100 p-4">
+            <li>
+
+              <div class="card bg-light mb-2 w-100">
+                <div class="card-header bg-pink">
+
+                  <div class="row">
+                    <div class="col-md-2 ">
+
+                      <img src="{{i.usuario.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
+                    </div>
+                    <div class="col-md-8 justify-content-start">
+                      <h5>{{i.usuario.nomeCompleto}}</h5>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="row">
+                </div>
+                <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}"
+                  alt="Imagem de capa do card">
+                <div class="card-body">
+                  <h5 class="card-title">{{i.tituloPostagem}}</h5>
+                  <p class="card-text">
+                    {{i.descricaoPostagem}}
+                  </p>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 ">
+                    <h5 class="card-text mb-2 mr-1"><small class="text-muted d-flex justify-content-end mr-1">{{i.date | date:
+                        'dd/MM/yyyy'}} às
+                        {{i.date | date: 'HH:mm'}}</small></h5>
+                  </div>
+                </div>
+
+              </div>
+
+            </li>
+
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class='justify-content-center scrollgroup'>
+      <div class="jumbotron bgwh mt-3 mr-5">
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-center">
+            <img src="{{grupo.foto}}" alt="Imagem do grupo" width="100px" height="100px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SZf8Xn4.png'">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-center">
+            <h4>{{grupo.nomeGrupo}}</h4>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p>{{grupo.tema}}</p>
+          </div>
+        </div>
+
+        <hr class="mb-0">
+        <div class="row mt-0">
+          <div class="col-md-12">
+            <p class="d-flex justify-content-end">{{qtdMembros}} membros</p>
+          </div>
+        </div>
+
+
+        <div class="row d-flex justify-content-center p-3">
+          <div class="col-md-12 d-flex justify-content-center">
+            <div class="btn-group">
+              <button type="button" class="btn bg-pink btn-lg w-100 dropdown-toggle" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Participantes
+              </button>
+              <div class="dropdown-menu dropdown-menu-right p-3">
+                <p class="text-center">Lista de Participantes<i class=" ml-3 mr-3 fa fa-users fa-2x" aria-hidden="true"></i></p>
+                <hr>
+                <div class="row" *ngFor='let i of grupo.listaParticipantes'>
+
+                  <div class="col-md-12">
+                    <p class="dropdown-item d-flex justify-content-center" type="button">{{i.nomeCompleto}}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center">
+
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+              <div class="d-flex justify-content-center">
+                <button class="btn testador text-white" *ngIf="verificarUser()"
+                  [routerLink]="['/grupo-edit', grupo.idGrupo]">Editar</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mr-5">
+        <div class="col-md-12 d-flex justify-content-end">
+          <button class="btn bg-w-yellow btn-lg w-75 mb-3" (click)='sairGrupo(grupo)'>Sair do grupo<i
+              class="fas fa-sign-out-alt ml-1"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

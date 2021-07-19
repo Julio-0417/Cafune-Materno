@@ -1,0 +1,59 @@
+.bg-w-yellow {
+  background-color: rgb(255, 226, 153)
+}
+.bg-pink {
+  background-color: rgb(254, 168, 243);
+}
+
+
+
+.bg-w-pink {
+  background-color: #E8D8FF;
+}
+
+li {
+  list-style-type: none;
+}
+
+.scrollgroup{
+  top: 200px;
+  right: 100px;
+}
+
+.bgwh{
+  background-color: #ffffff;
+}
+
+.bg-purple {
+  background-color: rgb(180, 65, 242);
+}
+
+.point{
+  cursor: pointer;
+}
+
+.pdbt-0{
+  padding-bottom: 0;
+}
+
+.w-85 {
+  width: 80%;
+}
+
+.testador {
+  background-color: #0069D9;
+}
+
+.bg-cz{
+  background-color: #d4d4d4;
+}
+
+.w-1em {
+  width: 1em;
+}
+
+
+textarea{
+  resize: none;
+}
+

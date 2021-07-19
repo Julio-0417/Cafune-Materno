@@ -1,0 +1,71 @@
+.bg-gold {
+    background-color: gold;
+}
+
+.bg-purple {
+    background-color: rgb(180, 65, 242);
+}
+
+.bg-w-purple {
+    background-color: #BF99E8
+}
+
+.bg-w-yellow {
+    background-color: rgb(255, 226, 153)
+}
+
+.bg-pink {
+    background-color: rgb(254, 168, 243);
+}
+
+.bg-w-pink {
+    background-color: #E8D8FF;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-color {
+    background-color: #F3EBFF;
+}
+
+#img-bg{
+    background-image: url(https://i.imgur.com/SewRF2E.jpg);
+
+    min-height: 695px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.logo-size{
+    width: 50px;
+    height: 50px;
+}
+
+.logo-size2{
+    width: 150px;
+    height: 150px;
+}
+
+.logo-tipo{
+    margin-top: 20px;
+    width: 300px;
+}
+
+.eyetop{
+    z-index: 8;
+    cursor: pointer;
+}
+
+
+a{
+  text-decoration: none;
+  color: rgb(180, 65, 242);
+}
+
+

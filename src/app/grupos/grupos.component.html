@@ -1,0 +1,104 @@
+<div class="container-fluid">
+
+  <div class="row bg-w-purple">
+    <div class="col-md-12 text-white">
+      <div class="row d-flex justify-content-center mt-4 mb-5">
+        <div class="col-md-4">
+          <div class="form-group d-flex align-items-center">
+            <input type="text" class="form-control" id="descricao" placeholder="Digite o que você deseja buscar">
+            <span class="input-group-addon">
+              <button class="ml-1 fa fa-search" style="background:transparent;border:none"></button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container d-flex justify-content-center">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active text-white bb-1" id="feed" data-toggle="pill" href="#pills-feed" role="tab"
+            aria-controls="pills-feed" aria-selected="true" routerLink="/feed">Feed</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white bb-1 ml-2" id="grupos" data-toggle="pill" href="#pills-grupos" role="tab"
+          aria-controls="pills-grupos" aria-selected="false" routerLink="/grupos">Grupos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white bb-1 ml-2" id="doacoes" data-toggle="pill" href="#pills-doacoes" role="tab"
+            aria-controls="pills-doacoes" aria-selected="false" routerLink="/doacoes">Doações</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white bb-1 ml-2" id="delegacia" data-toggle="pill" href="#pills-delegacia" role="tab"
+            aria-controls="pills-delegacia" aria-selected="false">Delegacia da Mulher</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row posicaoNav">
+        <div class="col-md-12 bg-w-yellow">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-feed" role="tabpanel" aria-labelledby="feed">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input [(ngModel)]='grupos.nomeGrupo' type="text" class="form-control" id="grupos.nomeGrupo"
+                    placeholder="Digite o nome do grupo:" (keydown.enter)='cadastrar()'>
+                </div>
+                <div class="form-group">
+                  <input [(ngModel)]='grupos.tema' type="text" class="form-control" id="grupos.tema"
+                    placeholder="Digite a descrição do tema do grupo:" (keydown.enter)='cadastrar()'>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <button class="btn btn-light" (click)='cadastrar()'>Cadastrar</button>
+                </div>
+              </div>
+
+                  <div class="col-md-6">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Nome do Grupo</th>
+                          <th scope="col" class="text-right">Modificações</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor='let i of listaGrupos'>
+                          <th>{{i.idGrupo}}</th>
+                          <td>{{i.nomeGrupo}}</td>
+                          <td class="d-flex justify-content-end">
+                            <button class="btn btn-outline-warning mr-3"(click)='sairGrupo(i)'>Sair</button>
+                            <button class="btn btn-outline-primary" *ngIf="verificaUsuarioGrupo(i)"  (click)='entrarGrupo(i)'>Entrar</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+             </div>
+          </div>
+          <div class="tab-pane fade" id="pills-grupos" role="tabpanel" aria-labelledby="grupos">
+
+          </div>
+          <div class="tab-pane fade" id="pills-doacoes" role="tabpanel" aria-labelledby="doacoes">3 Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Molestiae minus quod facilis accusantium, aspernatur ex, rerum, vitae
+            expedita voluptates unde ducimus et ea placeat nisi tenetur sequi provident officiis? Ea.</div>
+          <div class="tab-pane fade" id="pills-delegacia" role="tabpanel" aria-labelledby="delegacia">4 Lorem ipsum
+            dolor sit
+            amet consectetur adipisicing elit. Molestiae minus quod facilis accusantium, aspernatur ex, rerum, vitae
+            expedita voluptates unde ducimus et ea placeat nisi tenetur sequi provident officiis? Ea.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

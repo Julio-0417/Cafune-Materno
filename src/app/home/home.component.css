@@ -1,0 +1,53 @@
+.bg-gold {
+    background-color: gold;
+}
+
+.bg-purple {
+    background-color: rgb(180, 65, 242);
+}
+
+.bg-w-purple {
+    background-color: #BF99E8;
+}
+
+.bg-w-yellow {
+    background-color: rgb(255, 226, 153)
+}
+
+.bg-pink {
+    background-color: rgb(254, 168, 243);
+}
+
+.bg-w-pink {
+    background-color: #E8D8FF;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-w-w {
+    background-color: #FFF6F2;
+}
+
+
+.logo-size{
+    width: 50px;
+    height: 50px;
+}
+
+.w-15 {
+    width: 15%;
+
+}
+
+.border-shiny:hover {
+    border: 2px solid #BF99E8;
+    opacity: 1;
+    transition: all 0.3s;
+    box-shadow: 0 4px 4px 0 white, 0 3px 10px 0 purple;
+}
+textarea{
+  resize: none;
+}
+

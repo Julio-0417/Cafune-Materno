@@ -1,0 +1,38 @@
+<div class="container-fluid bg-w-pink">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-1 mt-1 point">
+            <p [routerLink]="['/pagina-usuario', idUser]" class="point"> <i class="fa fa-arrow-left" aria-hidden="true" routerLink='/feed'></i> Voltar</p>
+          </div>
+            <h1 class="text-center text-secondary">Atualizar Perfil</h1>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Nome Completo:</label>
+                <input type="text" class="form-control mb-3" id="nomeCompleto" [(ngModel)]='user.nomeCompleto' (keydown.enter)='atualizar()'>
+                <label>Foto:</label>
+                <input type="text" class="form-control mb-3" id="foto" [(ngModel)]='user.foto' (keydown.enter)='atualizar()'>
+                <label>Status:</label>
+                <input type="text" class="form-control mb-3" id="status" [(ngModel)]='user.status' (keydown.enter)='atualizar()'>
+                <label>Sobre:</label>
+                <input type="text" class="form-control mb-3" id="sobre" [(ngModel)]='user.sobre' (keydown.enter)='atualizar()'>
+                <label>Localização:</label>
+                <input type="text" class="form-control mb-3" id="" [(ngModel)]='user.localizacao' (keydown.enter)='atualizar()'>
+                <label>Pronomes:</label>
+                <input type="text" class="form-control mb-3" id="" [(ngModel)]='user.pronome' (keydown.enter)='atualizar()'>
+                <label>Senha:</label>
+                <input [type]="pwdType" class="form-control mb-3" id="" [(ngModel)]='user.senha' (keydown.enter)='atualizar()'>
+                <i class="far fa-eye eyetop input-group-append point justify-content-end mt-1 mr-2" (click)='showPass()'></i>
+                
+            </div>
+
+            <div class="d-flex justify-content-center mb-4">
+                <button class="btn bg-w-yellow mr-4" [routerLink]= "['/pagina-usuario', user.idUsuario]" >Cancelar</button>
+                <button class="btn  bg-pink input-group-append mr-2" (click)='atualizar()'>Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
