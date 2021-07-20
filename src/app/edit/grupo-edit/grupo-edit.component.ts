@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment.prod';
 export class GrupoEditComponent implements OnInit {
 
   grupo: Grupos = new Grupos()
+  grupoAtualizado: Grupos = new Grupos()
   idGrupo: number
 
   constructor(
@@ -36,7 +37,12 @@ export class GrupoEditComponent implements OnInit {
     })
   }
   updateGrupo() {
-    this.grupoService.putGrupos(this.grupo, this.idGrupo).subscribe((resp: Grupos)=>{
+    this.grupoAtualizado.idGrupo = this.grupo.idGrupo
+    this.grupoAtualizado.nomeGrupo = this.grupo.nomeGrupo
+    this.grupoAtualizado.tema = this.grupo.tema
+    this.grupoAtualizado.foto = this.grupo.foto
+
+    this.grupoService.putGrupos(this.grupoAtualizado, this.idGrupo).subscribe((resp: Grupos)=>{
       this.grupo = resp
       this.alertas.showAlertSuccess("Grupo Atualizado")
       this.findByIdGrupo(this.idGrupo)

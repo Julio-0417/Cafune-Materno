@@ -236,7 +236,7 @@
                             [routerLink]="['/pagina-grupo',i.idGrupo]">
                             Membro</p>
                         </td>
-                        <td>
+                        <td class="d-flex justify-content-end">
                           <button class="btn btn-outline-danger  w-100" *ngIf="verificarUser()"
                             (click)='deleteGrupo(i)'>Excluir</button>
                         </td>
@@ -264,7 +264,7 @@
 
                 <div>
                   <div class="row d-flex justify-content-center mt-4">
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                       <div class="card w-100">
                         <div class="card-body text-center">
                           <p class="card-text text-center font-weight-bold">Leite Materno</p>
@@ -277,7 +277,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                       <div class="card">
                         <div class="card-body">
                           <p class="card-text text-center font-weight-bold">Higiene Menstrual</p>
@@ -290,7 +290,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-2">
                       <div class="card">
                         <div class="card-body">
                           <p class="card-text text-center font-weight-bold">Roupas e Brinquedos</p>
@@ -314,7 +314,7 @@
                   <div class="col-md-6 d-flex flex-column align-content-center">
                     <h4 class="text-center p-4 w-100 bg-white rounded">Tipos de Violência</h4>
 
-                    <div class="bg-white w-100 p-4 mt-4">
+                    <div class="bg-white w-100 p-4 mt-4 mb-2">
                       <div class="dropdown">
                         <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -325,8 +325,6 @@
                             mulher.</p>
                         </div>
                       </div>
-
-
 
                       <div class="dropdown mt-4">
                         <button class="btn bg-p-rose btn-lg w-100 d-flex justify-content-between" type="button" id="dropdownMenuButton"

@@ -47,7 +47,32 @@
     transition: all 0.3s;
     box-shadow: 0 4px 4px 0 white, 0 3px 10px 0 purple;
 }
-textarea{
+
+textarea {
   resize: none;
+}
+
+@media (max-width: 360px){
+    .charizard{
+        padding: 0;
+    }
+
+    #teste{
+        width: 360px;
+        padding: 0;
+    }
+
+    #testeClass{
+        width: 360px;
+        margin: 0;
+    }
+
+    #cardTeste{
+        width: 72px;
+    }
+
+    .font-14 {
+        font-size: 14px;
+    }
 }
 

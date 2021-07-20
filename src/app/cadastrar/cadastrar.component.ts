@@ -44,7 +44,7 @@ export class CadastrarComponent implements OnInit {
       this.alertas.showAlertDanger('As senhas estão incorretas.')
 
     } else {
-      if(this.usuarios.email.length >= 5 && this.usuarios.email.indexOf('@') == 1 && this.usuarios.email.indexOf('.') == 1 && this.usuarios.nomeCompleto.length >= 5) {
+      if(this.usuarios.email.length >= 5 && this.usuarios.email.indexOf('@') != -1 && this.usuarios.email.indexOf('.') != -1 && this.usuarios.nomeCompleto.length >= 5 && this.usuarios.senha.length >= 6) {
         this.authService.cadastrar(this.usuarios).subscribe((resp: Usuarios) => {
           this.usuarios = resp
           this.router.navigate(['/entrar'])
