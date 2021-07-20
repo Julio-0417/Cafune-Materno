@@ -47,14 +47,15 @@ export class PostagemEditComponent implements OnInit {
   }
 
   atualizar(){
-    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5) { 
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5
+      && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) { 
       this.postagemService.putPostagem(this.postagens, this.idPostagem).subscribe((resp: Postagens) => {
         this.postagens = resp
         this.alertas.showAlertSuccess('Postagem atualizada com sucesso')
         this.router.navigate(['/minhas-postagens',this.idUser])
       })
     } else {
-      this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres.")
+      this.alertas.showAlertDanger("É necessário que o título tenha mais do que 5 caracteres e a postagem deve ter entre 5 e 255 caracteres.")
     }
   }
 

@@ -42,12 +42,17 @@ export class GrupoEditComponent implements OnInit {
     this.grupoAtualizado.tema = this.grupo.tema
     this.grupoAtualizado.foto = this.grupo.foto
 
-    this.grupoService.putGrupos(this.grupoAtualizado, this.idGrupo).subscribe((resp: Grupos)=>{
+    if (this.grupoAtualizado.nomeGrupo.length >= 5 && this.grupoAtualizado.tema.length >= 5
+      && this.grupoAtualizado.nomeGrupo.length <= 45 && this.grupoAtualizado.tema.length <= 45) {
+      this.grupoService.putGrupos(this.grupoAtualizado, this.idGrupo).subscribe((resp: Grupos)=>{
       this.grupo = resp
       this.alertas.showAlertSuccess("Grupo Atualizado")
       this.findByIdGrupo(this.idGrupo)
       this.router.navigate(['/pagina-grupo',this.idGrupo])
     })
+  } else {
+    this.alertas.showAlertDanger("É necessário que o título tenha mais do que 5 caracteres e a postagem deve ter entre 5 e 255 caracteres.")
+  }
 }
 
 }

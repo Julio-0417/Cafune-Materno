@@ -54,7 +54,8 @@ export class FeedComponent implements OnInit {
 
 
   cadastrar() {
-    if (this.grupos.nomeGrupo.length >= 5 && this.grupos.nomeGrupo.length >= 5) {
+    if (this.grupos.nomeGrupo.length >= 5 && this.grupos.tema.length >= 5
+      && this.grupos.nomeGrupo.length <= 45 && this.grupos.tema.length <= 45) {
       this.gruposService.postGrupos(this.grupos, environment.idUserLogin).subscribe((resp: Grupos) => {
         this.grupos = resp
         this.alertas.showAlertSuccess('Grupo cadastrado com sucesso!')
@@ -63,13 +64,14 @@ export class FeedComponent implements OnInit {
       })
 
     } else {
-      this.alertas.showAlertDanger('O nome e tema do grupo precisam ter mais do que 5 caracteres')
+      this.alertas.showAlertDanger('O nome e tema do grupo precisam ter entre 5 e 45 caracteres')
     }
 
   }
 
   postar() {
-    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5) {
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5 
+      && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) {
         this.gruposService.postPostagem(this.postagens, environment.idUserLogin).subscribe((resp: Postagens) => {
         this.postagens = resp
         this.alertas.showAlertSuccess("Postagem cadastrada com sucesso!")
@@ -77,7 +79,7 @@ export class FeedComponent implements OnInit {
         this.findAllPostagens()
       })
     } else {
-      this.alertas.showAlertDanger("É necessário que o titulo e a postagem tenham mais de 5 caracteres")
+      this.alertas.showAlertDanger("É necessário que o título tenha mais do que 5 caracteres e a postagem deve ter entre 5 e 255 caracteres.")
     }
 
   }
