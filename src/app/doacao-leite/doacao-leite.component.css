@@ -17,3 +17,8 @@
 .bg-p-rose {
     background-color: #f6eded;
 }
+
+.outline-none {
+    outline: none;
+    box-shadow: none !important;
+}

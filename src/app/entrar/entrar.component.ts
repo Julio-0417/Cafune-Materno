@@ -15,6 +15,7 @@ export class EntrarComponent implements OnInit {
   userLogin: UserLogin = new UserLogin()
   show: boolean
   pwdType = 'password'
+  loading = false
 
   constructor(
     private auth: AuthService,
@@ -27,9 +28,10 @@ export class EntrarComponent implements OnInit {
   }
 
   entrar() {
+    this.loading = true
     this.auth.entrar(this.userLogin).subscribe((resp: UserLogin) => {
+      this.loading = false
       this.userLogin = resp
-
       environment.token = this.userLogin.token
       environment.nome = this.userLogin.nome
       environment.foto = this.userLogin.foto

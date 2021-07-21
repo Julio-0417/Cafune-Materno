@@ -19,6 +19,9 @@ export class FeedComponent implements OnInit {
   listaGrupos: Grupos[]
   listaPostagens: Postagens[]
   idUsuario = environment.idUserLogin
+  loading = false
+  key = 'data'
+  reverse = true
 
   constructor(
     private router: Router,
@@ -54,9 +57,11 @@ export class FeedComponent implements OnInit {
 
 
   cadastrar() {
+    this.loading = true
     if (this.grupos.nomeGrupo.length >= 5 && this.grupos.tema.length >= 5
       && this.grupos.nomeGrupo.length <= 45 && this.grupos.tema.length <= 45) {
       this.gruposService.postGrupos(this.grupos, environment.idUserLogin).subscribe((resp: Grupos) => {
+        this.loading = false
         this.grupos = resp
         this.alertas.showAlertSuccess('Grupo cadastrado com sucesso!')
         this.grupos = new Grupos()
@@ -70,9 +75,11 @@ export class FeedComponent implements OnInit {
   }
 
   postar() {
-    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5 
+    this.loading = true
+    if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5
       && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) {
         this.gruposService.postPostagem(this.postagens, environment.idUserLogin).subscribe((resp: Postagens) => {
+        this.loading = false
         this.postagens = resp
         this.alertas.showAlertSuccess("Postagem cadastrada com sucesso!")
         this.postagens = new Postagens()
@@ -86,7 +93,9 @@ export class FeedComponent implements OnInit {
 
   entrarGrupo(grupo: Grupos) {
     console.log(grupo.idGrupo)
+    this.loading = true
     this.gruposService.addGrupo(environment.idUserLogin, grupo.idGrupo).subscribe((resp: Usuarios) => {
+      this.loading = false
       this.usuarios = resp
       this.alertas.showAlertSuccess('Adicionado com sucesso')
     })
@@ -127,9 +136,10 @@ export class FeedComponent implements OnInit {
   }
 
   deleteGrupo(grupo: Grupos) {
-
+    this.loading = true
     if (grupo.listaParticipantes.length == 0) {
       this.gruposService.deleteGrupos(grupo.idGrupo).subscribe(()=>{
+            this.loading = false
             this.alertas.showAlertSuccess("Grupo apagado com sucesso")
             this.ngOnInit()
         //this.findAllGrupos()

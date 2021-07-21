@@ -27,6 +27,7 @@ import { DoacaoLeiteComponent } from './doacao-leite/doacao-leite.component';
 import { DoacaoHigieneComponent } from './doacao-higiene/doacao-higiene.component';
 import { DoacaoRoupaComponent } from './doacao-roupa/doacao-roupa.component';
 import { AjudaSuporteComponent } from './ajuda-suporte/ajuda-suporte.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -61,7 +62,8 @@ import { AjudaSuporteComponent } from './ajuda-suporte/ajuda-suporte.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [{
     provide: LocationStrategy,

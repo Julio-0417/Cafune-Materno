@@ -47,6 +47,6 @@ ul.social-network li{
 
 .fixfoot{
     bottom: 0px;
-    position: static;
+    position: static ;
     z-index: 10;
 }

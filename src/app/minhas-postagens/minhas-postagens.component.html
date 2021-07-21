@@ -5,56 +5,80 @@
 
   <div class="container-fluid bg-w-pink">
 
-    <div class="row d-flex m-0 justify-content-center" *ngIf='(user.postagens.length == 0)'>
-      <div class="col-md-12 d-flex justify-content-center">
-        <h3 class="text-secondary">Você não possui nenhuma postagem, <a class="point" routerLink='/feed'>deseja fazer uma agora?</a></h3>
-      </div>
-      <div class="col-md-6">
-        <img src="https://i.imgur.com/zs1HqLx.png"  class = "w-100" alt="empty">
-      </div>
-    </div>
-    <div class="row mt-4" *ngFor='let i of user.postagens'>
-      <div class="col-md-12 d-flex justify-content-center">
-        <div class="card bg-light mb-4 w-50">
-          <div class="card-header bg-pink">
-            <div class="row">
-              <div class="col-md-2">
-                <img src="{{user.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
-              </div>
-              <div class="col-md-9">
-                <h5>{{user.nomeCompleto}}</h5>
-              </div>
-              <div class="col-md-1">
 
-                <div class="dropdown">
-                  <i class="fa fa-ellipsis-h" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false"></i>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" [routerLink]="['/postagem-edit', i.idPostagem]">Editar</a>
-                    <a class="dropdown-item" [routerLink]="['/postagem-delete', i.idPostagem]">Apagar</a>
+    <div class="row ml-5">
+      <div class="col-md-3 mb-3">
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-center">
+
+              <div class="card mt-3" style="width: 18rem;">
+                  <div class="d-flex justify-content-center mt-2 ">
+                      <img src="{{user.foto}}" class="rounded-circle w-50" onerror="src='https://i.imgur.com/SrzGe8e.png'">
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">{{user.nomeCompleto}}
+                      </h4>
+                      <h5 class="card-subtitle mb-2">Status: {{user.status}}</h5>
+                      <h5 class="card-title"><i class="fas fa-address-card mr-1"></i>Sobre: {{user.sobre}} </h5>
+                        <h5 class="mb-2"><i class="fas fa-book-open"></i> Pronome: {{user.pronome}} </h5>
+                        <h5><i class="fas fa-map-marker-alt"></i> De: {{user.localizacao}} </h5>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-md-9 ml-0">
+        <div class="row d-flex m-0 justify-content-center" *ngIf='(user.postagens.length == 0)'>
+          <div class="col-md-12 d-flex justify-content-center">
+            <h3 class="text-secondary">Você não possui nenhuma postagem, <a class="point" routerLink='/feed'>deseja fazer uma agora?</a></h3>
+          </div>
+          <div class="col-md-6">
+            <img src="https://i.imgur.com/zs1HqLx.png"  class = "w-100" alt="empty">
+          </div>
+        </div>
+        <div class="row mt-4" *ngFor='let i of user.postagens | orderBy : key : reverse'>
+          <div class="col-md-12 d-flex justify-content-center">
+            <div class="card bg-light mb-4 w-50">
+              <div class="card-header bg-pink">
+                <div class="row">
+                  <div class="col-md-2">
+                    <img src="{{user.foto}}" alt="foto perfil" width="70px" height="70px" class="rounded-circle bg-white" onerror="src='https://i.imgur.com/SrzGe8e.png'">
+                  </div>
+                  <div class="col-md-9">
+                    <h5>{{user.nomeCompleto}}</h5>
+                  </div>
+                  <div class="col-md-1">
+
+                    <div class="dropdown">
+                      <i class="fa fa-ellipsis-h" aria-hidden="true" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false"></i>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" [routerLink]="['/postagem-edit', i.idPostagem]">Editar</a>
+                        <a class="dropdown-item" [routerLink]="['/postagem-delete', i.idPostagem]">Apagar</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}" alt="Imagem de capa do card">
+              <div class="card-body">
+                <h5 class="card-title">{{i.tituloPostagem}}</h5>
+                <p class="card-text">
+                  {{i.descricaoPostagem}}
+                </p>
+              </div>
+              <div class="row">
+                <div class="col-md-12 ">
+                  <h5 class="card-text mr-1 mb-2"><small class="text-muted d-flex justify-content-end mr-1">{{i.date | date:
+                      'dd/MM/yyyy'}} às
+                      {{i.date | date: 'HH:mm'}}</small></h5>
+                </div>
+              </div>
             </div>
-          </div>
-          <img *ngIf='!(i.urlAnexo == null)' class="card-img-top" src="{{i.urlAnexo}}" alt="Imagem de capa do card">
-          <div class="card-body">
-            <h5 class="card-title">{{i.tituloPostagem}}</h5>
-            <p class="card-text">
-              {{i.descricaoPostagem}}
-            </p>
-          </div>
-          <div class="row">
-            <div class="col-md-12 ">
-              <h5 class="card-text mr-1 mb-2"><small class="text-muted d-flex justify-content-end mr-1">{{i.date | date:
-                  'dd/MM/yyyy'}} às
-                  {{i.date | date: 'HH:mm'}}</small></h5>
-            </div>
+
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
 

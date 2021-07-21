@@ -18,7 +18,7 @@ export class CadastrarComponent implements OnInit {
   tipoUsuario: string
   show: boolean
   pwdType = 'password'
-
+  loading = false
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -38,6 +38,7 @@ export class CadastrarComponent implements OnInit {
   }
 
   cadastrar() {
+    this.loading = true
     this.usuarios.tipo = this.tipoUsuario
 
     if (this.usuarios.senha != this.confirmarSenha) {
@@ -46,12 +47,13 @@ export class CadastrarComponent implements OnInit {
     } else {
       if(this.usuarios.email.length >= 5 && this.usuarios.email.indexOf('@') != -1 && this.usuarios.email.indexOf('.') != -1 && this.usuarios.nomeCompleto.length >= 5 && this.usuarios.senha.length >= 6) {
         this.authService.cadastrar(this.usuarios).subscribe((resp: Usuarios) => {
+          this.loading = false
           this.usuarios = resp
           this.router.navigate(['/entrar'])
           this.alertas.showAlertSuccess('Usuário cadastrado com sucesso!')
         })
       } else {
-       this.alertas.showAlertDanger('Confira se os campos de email e nome completo contém mais do que 5 caracteres') 
+       this.alertas.showAlertDanger('Confira se os campos de email e nome completo contém mais do que 5 caracteres')
       }
     }
 

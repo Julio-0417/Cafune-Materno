@@ -23,7 +23,10 @@ export class PaginaGrupoComponent implements OnInit {
   qtdMembros: number
   postagens: Postagens = new Postagens()
   novaPostagem: Postagens = new Postagens()
-
+  loading = false
+  key =  'data'
+  reverse = true
+  loadingPublicar = false
   idUser: number
 
   listaPostagens: Postagens[]
@@ -38,6 +41,7 @@ export class PaginaGrupoComponent implements OnInit {
   ) { }
 
   ngOnInit()  {
+    window.scroll(0, 0)
     if(environment.token == '') {
       this.router.navigate(['/home'])
       this.alertas.showAlertInfo('É necessário logar novamente')
@@ -70,7 +74,9 @@ export class PaginaGrupoComponent implements OnInit {
   }
 
   sairGrupo(grupo: Grupos) {
+    this.loading = true
     this.grupoService.removerGrupo(environment.idUserLogin, grupo.idGrupo ).subscribe((resp: Usuarios)=>{
+      this.loading = false
       this.usuarios = resp
       this.alertas.showAlertSuccess('Removido com sucesso')
       this.router.navigate(['/feed'])
@@ -85,10 +91,10 @@ export class PaginaGrupoComponent implements OnInit {
       this.postagens = resp
       this.alertas.showAlertSuccess('Postagem cadastrado com sucesso!')
       this.postagens = new Postagens()
-     
+
     })
     this.listaPostagens
-    
+
   }
 
   verificarUser() {
@@ -102,15 +108,15 @@ export class PaginaGrupoComponent implements OnInit {
   }
 
   cadastrarPostagem() {
-    console.log(this.postagens)
+    this.loadingPublicar = true
     if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5
       && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) {
       this.postagens.grupoPertencente = this.grupo
       this.postagemService.postPostagem(this.postagens, this.idUser).subscribe((resp: Postagens)=>{
+        this.loadingPublicar = false
         this.postagens = resp
         this.alertas.showAlertSuccess("Postagem realizada com sucesso!")
         this.postagens = new Postagens()
-        this.findAllPostagem()
       })
     } else {
       this.alertas.showAlertDanger("É necessário que o título tenha mais do que 5 caracteres e a postagem deve ter entre 5 e 255 caracteres.")

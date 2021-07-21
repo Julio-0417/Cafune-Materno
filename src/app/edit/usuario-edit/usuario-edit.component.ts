@@ -21,7 +21,7 @@ export class UsuarioEditComponent implements OnInit {
   show: boolean
   pwdType = 'password'
   usuarioAtualizado: Usuarios = new Usuarios()
-
+  loading = false
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -49,7 +49,7 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   atualizar() {
-    console.log(this.user.email)
+    this.loading = true
     this.usuarioAtualizado.idUsuario = this.user.idUsuario
     this.usuarioAtualizado.nomeCompleto = this.user.nomeCompleto
     this.usuarioAtualizado.senha = this.user.senha
@@ -61,6 +61,7 @@ export class UsuarioEditComponent implements OnInit {
     this.usuarioAtualizado.email = this.user.email
 
     this.usuarios.putUsuario(this.usuarioAtualizado).subscribe((resp: Usuarios) => {
+      this.loading = false
         this.user = resp
         this.router.navigate(['/inicio'])
         this.alertas.showAlertSuccess('Usuário atualizado com sucesso, faça o login novamente.')

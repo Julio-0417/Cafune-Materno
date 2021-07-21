@@ -35,7 +35,9 @@
 
           <div class="row mt-5 mb-2">
             <div class="col-md-12 d-flex justify-content-end">
-              <button class="btn bg-pink input-group-append mr-2" (click)='atualizar()'>Editar</button>
+              <button class="btn bg-pink input-group-append mr-2 d-flex align-items-center" (click)='atualizar()'>
+                <i *ngIf="loading" class="fa fa-spinner fa-spin mr-1" aria-hidden="true"></i>
+                Editar</button>
               <button class="btn bg-w-yellow" [routerLink]="['/minhas-postagens', idUser]">Cancelar</button>
             </div>
           </div>

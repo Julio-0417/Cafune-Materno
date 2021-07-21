@@ -88,3 +88,13 @@ textarea{
 .bg-p-rose {
     background-color: #f6eded;
 }
+
+.outline-none {
+    outline: none;
+    box-shadow: none !important;
+}
+
+#f-12 {
+    font-size: 12px;
+}
+

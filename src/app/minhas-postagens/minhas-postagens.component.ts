@@ -17,6 +17,8 @@ export class MinhasPostagensComponent implements OnInit {
   postagens: Postagens = new Postagens()
   listaPostagens: Postagens[]
   idUser: number
+  key = 'data'
+  reverse = true
   user: Usuarios = new Usuarios()
 
   constructor(

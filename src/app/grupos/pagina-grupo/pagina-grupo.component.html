@@ -26,13 +26,15 @@
               (keydown.enter)='cadastrarPostagem()'>
           </div>
           <div class="d-flex justify-content-end mt-3">
-            <button class="btn bg-purple mb-0 text-white w-25" (click)='cadastrarPostagem()'>Publicar</button>
+            <button class="btn bg-purple mb-0 text-white w-25" (click)='cadastrarPostagem()'>
+              <i *ngIf="loadingPublicar" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+              Publicar</button>
           </div>
         </div>
       </div>
 
 
-      <div class="row" *ngFor='let i of grupo.post'>
+      <div class="row" *ngFor='let i of grupo.post | orderBy : key : reverse'>
         <div class="w-100 p-4">
             <li>
 
@@ -141,8 +143,9 @@
       </div>
       <div class="row mr-5">
         <div class="col-md-12 d-flex justify-content-end">
-          <button class="btn bg-w-yellow btn-lg w-75 mb-3" (click)='sairGrupo(grupo)'>Sair do grupo<i
-              class="fas fa-sign-out-alt ml-1"></i></button>
+          <button class="btn bg-w-yellow btn-lg w-75 mb-3" (click)='sairGrupo(grupo)'>
+            <i *ngIf="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            Sair do grupo<i class="fas fa-sign-out-alt ml-1"></i></button>
         </div>
       </div>
 

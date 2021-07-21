@@ -17,6 +17,7 @@ export class PostagemEditComponent implements OnInit {
   postagens : Postagens = new Postagens()
   idPostagem : number
   idUser: number
+  loading = false
 
   constructor(
     private gruposService: GruposService,
@@ -47,9 +48,11 @@ export class PostagemEditComponent implements OnInit {
   }
 
   atualizar(){
+    this.loading = true
     if (this.postagens.tituloPostagem.length >= 5 && this.postagens.descricaoPostagem.length >= 5
-      && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) { 
+      && this.postagens.descricaoPostagem.length <=255 && this.postagens.tituloPostagem.length <= 45) {
       this.postagemService.putPostagem(this.postagens, this.idPostagem).subscribe((resp: Postagens) => {
+        this.loading = false
         this.postagens = resp
         this.alertas.showAlertSuccess('Postagem atualizada com sucesso')
         this.router.navigate(['/minhas-postagens',this.idUser])

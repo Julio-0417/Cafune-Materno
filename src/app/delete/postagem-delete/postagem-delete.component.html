@@ -20,7 +20,7 @@
                     <div class="col-md-9">
                       <h5>{{postagens.usuario.nomeCompleto}}</h5>
                       <br>
-                      
+
                     </div>
                     <div class="col-md-1">
 
@@ -47,7 +47,9 @@
     </div>
     <div class="row mt-2">
         <div class="col-md-9 d-flex justify-content-end mb-4">
-          <button class="btn bg-pink mr-2" (click)='apagar()'>Apagar</button>
+          <button class="btn bg-pink mr-2" (click)='apagar()'>
+            <i *ngIf="loading" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+            Apagar</button>
           <button class="btn bg-w-yellow" [routerLink]="['/minhas-postagens', idUser]">Cancelar</button>
         </div>
     </div>

@@ -16,7 +16,7 @@ export class PostagemDeleteComponent implements OnInit {
   idPostagem : number
   postagens : Postagens = new Postagens()
   idUser : number
-
+  loading = false
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -45,7 +45,9 @@ export class PostagemDeleteComponent implements OnInit {
   }
 
   apagar() {
+    this.loading = true
     this.postagemService.deletePostagem(this.idPostagem).subscribe(() => {
+      this.loading = false
       this.alertas.showAlertSuccess('Postagem deletada com sucesso!')
       this.router.navigate(['/minhas-postagens', this.idUser])
     })

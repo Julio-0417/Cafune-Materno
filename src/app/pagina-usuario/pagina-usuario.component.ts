@@ -17,7 +17,7 @@ export class PaginaUsuarioComponent implements OnInit {
   user: Usuarios = new Usuarios()
   foto: string
   id: number
-
+  
 
   constructor(
     private router: Router,
@@ -27,6 +27,7 @@ export class PaginaUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0, 0)
     if(environment.token == ''){
         this.alertas.showAlertInfo('Sua sessão expirou, faça o login novamente')
       this.router.navigate(['/entrar'])
