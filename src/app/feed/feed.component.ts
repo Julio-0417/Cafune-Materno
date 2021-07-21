@@ -93,9 +93,7 @@ export class FeedComponent implements OnInit {
 
   entrarGrupo(grupo: Grupos) {
     console.log(grupo.idGrupo)
-    this.loading = true
     this.gruposService.addGrupo(environment.idUserLogin, grupo.idGrupo).subscribe((resp: Usuarios) => {
-      this.loading = false
       this.usuarios = resp
       this.alertas.showAlertSuccess('Adicionado com sucesso')
     })
@@ -136,12 +134,10 @@ export class FeedComponent implements OnInit {
   }
 
   deleteGrupo(grupo: Grupos) {
-    this.loading = true
     if (grupo.listaParticipantes.length == 0) {
       this.gruposService.deleteGrupos(grupo.idGrupo).subscribe(()=>{
-            this.loading = false
-            this.alertas.showAlertSuccess("Grupo apagado com sucesso")
-            this.ngOnInit()
+          this.alertas.showAlertSuccess("Grupo apagado com sucesso")
+          this.ngOnInit()
         //this.findAllGrupos()
       })
 
